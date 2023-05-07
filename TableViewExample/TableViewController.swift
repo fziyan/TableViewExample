@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    let scientists: [String] = [    "Ali Kuşçu",
+    var scientists: [String] = [    "Ali Kuşçu",
                                     "Aziz Sancar",
                                     "Cahit Arf",
                                     "Piri Reis",
@@ -64,6 +64,16 @@ class TableViewController: UITableViewController {
         let selectedScientist = scientists[indexPath.row]
         print("\(selectedScientist.description) \(indexPath)")
     }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // sourceIndexPath : Sırası değiştirilmek istenen hücrenin konumu
+        // destinationIndexPath : Gidilmesi istenen konum (Parmak ekrandan kaldırıldığı anda devreye giriyor)
+        
+        let moveScientist = scientists.remove(at: sourceIndexPath.row) // Hareket ettirilen cell nesnesine ulaşıp arrayden siliyorum.
+        scientists.insert(moveScientist, at: destinationIndexPath.row) // Silinen eleman array'e yeni yerine ekleniyor.
+        tableView.reloadData()
+    }
+    
     
     // MARK: - Actions
     
