@@ -9,6 +9,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    // MARK: - Property
     var scientists: [String] = [    "Ali Kuşçu",
                                     "Aziz Sancar",
                                     "Cahit Arf",
@@ -42,7 +43,7 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return scientists.count
     }
     
