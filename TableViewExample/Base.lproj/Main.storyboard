@@ -58,6 +58,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="eA3-MK-vih" kind="presentation" identifier="toEditScientist" id="aPZ-fc-pfw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ab-Uk-Wt9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -200,6 +203,9 @@
             <point key="canvasLocation" x="1808" y="684"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aPZ-fc-pfw"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

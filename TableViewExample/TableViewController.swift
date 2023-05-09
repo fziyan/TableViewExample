@@ -30,6 +30,20 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toEditScientist" {
+            
+            let selectedIndexPath = tableView.indexPathForSelectedRow!
+            let selectedScientist = scientists[selectedIndexPath.row]
+            
+            let navigationController = segue.destination as! UINavigationController
+            let editScientistController = navigationController.topViewController as! NewScientistTableViewController
+            
+            editScientistController.scientist = selectedScientist
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -59,7 +73,8 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let selectedScientist = scientists[indexPath.row]
-        //print("\(selectedScientist.description) \(indexPath)")
+        performSegue(withIdentifier: "toEditScientist", sender: nil)
+       
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
@@ -99,10 +114,17 @@ class TableViewController: UITableViewController {
               let sourceViewController = _segue.source as? NewScientistTableViewController,
               let newScient = sourceViewController.scientist else { return }
         
-        let newIndexPath = IndexPath(row: scientists.count, section: 0) // yeni bir hücre için indexPath oluşturuyor
-        scientists.append(newScient)
-        tableView.insertRows(at: [newIndexPath], with: .automatic)  //Oluşan IndexPath ve TAbleViw'a yeni hücre ekler
-        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            // daha önceden bir hücre seçilmiş ve alanların ve hücrelerin güncellenmesi gerekiyor.
+            scientists[selectedIndexPath.row] = newScient
+            tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            
+        } else { // bir row seçilmediyse direkt olarak else'e girecek
+            
+            let newIndexPath = IndexPath(row: scientists.count, section: 0) // yeni bir hücre için indexPath oluşturuyor
+            scientists.append(newScient)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)  //Oluşan IndexPath ve TAbleViw'a yeni hücre ekler
+        }
         
     }
 

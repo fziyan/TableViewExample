@@ -17,6 +17,12 @@ class NewScientistTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Önceki sayfadan bir scientist objesi iletildiyse burda kontrol yapılır ilgili fieldlara basılıyor.
+        if let scientist = scientist {
+            scientistTextField.text = scientist.name
+            descriptionTextField.text = scientist.desctiption
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
