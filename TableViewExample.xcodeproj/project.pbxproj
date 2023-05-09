@@ -16,6 +16,8 @@
 		7E8A686D2A08538300DAF80E /* TableViewExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A686C2A08538300DAF80E /* TableViewExampleUITests.swift */; };
 		7E8A686F2A08538300DAF80E /* TableViewExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A686E2A08538300DAF80E /* TableViewExampleUITestsLaunchTests.swift */; };
 		7E8A687C2A08545400DAF80E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A687B2A08545400DAF80E /* TableViewController.swift */; };
+		7E8A687E2A0A936E00DAF80E /* NewScientistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A687D2A0A936E00DAF80E /* NewScientistTableViewController.swift */; };
+		7E8A68802A0AA47100DAF80E /* Scientist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A687F2A0AA47100DAF80E /* Scientist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		7E8A686C2A08538300DAF80E /* TableViewExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExampleUITests.swift; sourceTree = "<group>"; };
 		7E8A686E2A08538300DAF80E /* TableViewExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7E8A687B2A08545400DAF80E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		7E8A687D2A0A936E00DAF80E /* NewScientistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewScientistTableViewController.swift; sourceTree = "<group>"; };
+		7E8A687F2A0AA47100DAF80E /* Scientist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scientist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				7E8A68562A08538300DAF80E /* LaunchScreen.storyboard */,
 				7E8A68592A08538300DAF80E /* Info.plist */,
 				7E8A687B2A08545400DAF80E /* TableViewController.swift */,
+				7E8A687D2A0A936E00DAF80E /* NewScientistTableViewController.swift */,
+				7E8A687F2A0AA47100DAF80E /* Scientist.swift */,
 			);
 			path = TableViewExample;
 			sourceTree = "<group>";
@@ -261,6 +267,8 @@
 				7E8A684C2A08538200DAF80E /* AppDelegate.swift in Sources */,
 				7E8A687C2A08545400DAF80E /* TableViewController.swift in Sources */,
 				7E8A684E2A08538200DAF80E /* SceneDelegate.swift in Sources */,
+				7E8A687E2A0A936E00DAF80E /* NewScientistTableViewController.swift in Sources */,
+				7E8A68802A0AA47100DAF80E /* Scientist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
