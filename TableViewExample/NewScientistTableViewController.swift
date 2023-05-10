@@ -29,9 +29,17 @@ class NewScientistTableViewController: UITableViewController {
         
         guard segue.identifier == "saveUnwind" else { return }
         
-        let scientistName = scientistTextField.text!
-        let descriptionName = descriptionTextField.text!
-        scientist = Scientist(name: scientistName, desctiption: descriptionName)
+        if !scientistTextField.text!.isEmpty && !descriptionTextField.text!.isEmpty {
+            
+            let scientistName = scientistTextField.text!
+            let descriptionName = descriptionTextField.text!
+            scientist = Scientist(name: scientistName, desctiption: descriptionName)
+        }
+        else{
+            // pop-up uyarısı eklenecek.
+            print("Boş kayıt yapamazsın!. Lütfen bir değer giriniz..")
+        }
+      
         
     }
 
