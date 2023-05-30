@@ -10,25 +10,12 @@ import UIKit
 class TableViewController: UITableViewController {
     
     // MARK: - Property
-    var scientists: [Scientist] = [ Scientist(name: "İlber Ortaylı", desctiption: "Tarihçi"),
-                                    Scientist(name: "Oktay Sinanoğlu", desctiption: "Bilim Adamı"),
-                                    Scientist(name: "Aziz Sancar", desctiption: "Bilim Adamı"),
-                                    Scientist(name: "Mehmet Öz", desctiption: "Tıp Doktoru"),
-                                    Scientist(name: "Cahit Arf", desctiption: "Bilim İnsanı - Fizikçi ve Kimyacı"),
-                                    Scientist(name: "Albert Einstein", desctiption: "Bilim Adamı"),
-                                    Scientist(name: "Niels Bohr", desctiption: "Bilim Adamı - Atom Fiziği"),
-                                    Scientist(name: "Stephen Hawking", desctiption: "Bilim Adamı - Kuramsal Fizik"),
-                                    Scientist(name: "Muazzez İlmiye Çığ", desctiption: "Bilim İnsanı - Arkeolog"),
-                                    Scientist(name: "Stephen Hawking", desctiption: "Bilim Adamı - Fizik"),
-                                    Scientist(name: "Charles Darwin", desctiption: "Bilim Adamı"),
-                                    Scientist(name: "Ali Kuşçu", desctiption: "Bilim Adamı - Astronomi"),
-                                    Scientist(name: "Feza Gürsey", desctiption: "Bilim Adamı"),
-                                    Scientist(name: "Pîrî Reis", desctiption: "Denizci ve kartograf"),
-                                    Scientist(name: "Fârâbî", desctiption: "Gök bilimci, mantıkçı ve müzisyendir"),]
+    var scientists: [Scientist] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getSavedArray()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,6 +29,19 @@ class TableViewController: UITableViewController {
             let editScientistController = navigationController.topViewController as! NewScientistTableViewController
             
             editScientistController.scientist = selectedScientist
+        }
+    }
+    
+    func saveArray() {
+        let encoded = try! JSONEncoder().encode(scientists)
+        UserDefaults.standard.set(encoded, forKey: "abc")
+    }
+    
+    func getSavedArray() {
+        if let data = UserDefaults.standard.value(forKey: "abc") as? Data {
+            let decodedArray = try! JSONDecoder().decode([Scientist].self, from: data)
+            self.scientists = decodedArray
+            tableView.reloadData()
         }
     }
 
@@ -126,6 +126,7 @@ class TableViewController: UITableViewController {
             tableView.insertRows(at: [newIndexPath], with: .automatic)  //Oluşan IndexPath ve TAbleViw'a yeni hücre ekler
         }
         
+        saveArray()
     }
 
 

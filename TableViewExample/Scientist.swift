@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Scientist {
+struct Scientist: Codable {
     
     var name: String
     var desctiption: String
